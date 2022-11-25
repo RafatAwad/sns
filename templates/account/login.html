@@ -1,0 +1,96 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}" dir={% if 'ar' in LANGUAGE_CODE %}  "rtl" {% else %} "ltr" {% endif %}>
+<title>{% translate "login" %}</title>  
+<head>
+    <meta charset="utf-8">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <!-- Main styles for this application-->
+    {% if 'ar' in LANGUAGE_CODE %} 
+    <link rel="stylesheet" href="{% static 'dist/css/style.rtl.css' %}"/>
+    <link href="{% static 'src/css/form.css' %}" rel="stylesheet">
+    {% else %}
+    <link href="{% static 'dist/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'src/css/form.css' %}" rel="stylesheet">
+    {% endif %}
+    {% include 'base/header.html' %}
+  </head>
+  <body class="app flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                {% include 'partial/messages.html' %}
+                <br/>
+                <h1>{% translate "Login" %}</h1>
+                <p class="text-muted">{% translate "Sign In to your account" %}</p>
+                <form class="" action="" method="post">
+                  {% csrf_token %}
+
+                    <div class="input-group mb-3">
+                      {{ form.username }}
+                          <div class="btn btn-primary">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      {{ form.password }}
+                            <div class="btn btn-primary">
+                              <i class="fa fa-key"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      {{ form.captcha }}
+                        <button class='js-captcha-refresh btn btn-primary'> <i class="fa fa-rotate-left"></i></button>
+                    </div>
+
+                  <div class="row">
+                    <div class="col-6">
+                       <input type="submit" value="{% translate "Login" %}" class="btn btn-primary px-4" />
+                    </div>
+                    <div class="col-6 text-right">
+                      <button class="btn btn-link px-0" type="button">{% translate "Forgot password?" %}</button>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+              <div class="card-body text-center">
+                <div>
+                  <h2>Contact Admin</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="btn btn-primary active mt-3" type="button">Register Now!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $('.js-captcha-refresh').click(function(){
+        $form = $(this).parents('form');
+    
+        $.getJSON($(this).data('url'), {}, function(json) {
+            // This should update your captcha image src and captcha hidden input
+        });
+    
+        return false;
+    });
+    $('.captcha').click(function () {
+      $.getJSON("/captcha/refresh/", function (result) {
+          $('.captcha').attr('src', result['image_url']);
+          $('#id_captcha_0').val(result['key'])
+      });
+  });
+    </script>
+    <!-- CoreUI and necessary plugins-->
+    {% include 'base/js.html' %}
+  </body>
+</html>

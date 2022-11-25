@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% block title %}{% translate "parent profile" %} | {{parent.name}}{% endblock %}
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <img style="height:200px; width:200px; border-radius:50%; margin:auto" src="{{ parent.photo.url }}" alt="Photo">
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="address_information">
+        <div class="row">
+          <h2 class="mx-auto">{% translate "parent Information" %}</h2>
+        </div>
+        <hr>
+        <div class="row">
+          <div style="font-size:24px; margin-left: 30px">
+            <pre>{% translate "Parent Name " %}                   : {{ parent.name }}</pre>
+            <pre>{% translate "date of birth" %}:{{ parent.date_of_birth }}</pre>
+            <pre>{% translate "place of birth" %}:{{ parent.place_of_birth }}</pre>
+            <pre>{% translate "gender" %}:{{ parent.gender }}</pre>
+            <pre>{% translate "blood group" %}:{{ parent.blood_group }}</pre>
+            <pre>{% translate "show" %}:{{ parent.id_type }} | <a href="{{ parent.id_file.url }}" target="new-window">{% translate "download" %}</a></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="personal_information">
+        <div class="row">
+          <h2 class="mx-auto">{% translate "contact info" %}</h2>
+        </div>
+        <hr>
+        <div class="row">
+          <div style="font-size:24px; margin-left: 30px">
+            <pre> {% translate "phone number" %}        : {{ parent.phone_no }}</pre>
+            <pre> {% translate "Email" %}       : {{ parent.emial }}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="address_information">
+        <div class="row">
+          <h2 class="mx-auto">{% translate "address info " %}</h2>
+        </div>
+        <hr>
+        <div class="row">
+          <div style="font-size:24px; margin-left: 30px">
+            <pre>{% translate "governorate" %}: {{ parent.address.governorate }}</pre>
+            <pre>{% translate "district" %}: {{ parent.address.district }}</pre>
+            <pre>{% translate "sub district" %}: {{ parent.address.sub_district }}</pre>
+            <pre>{% translate "village" %}: {{ parent.address.village }}</pre>
+            <pre>{% translate "sub village" %} : {{ parent.address.sub_village }}</pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

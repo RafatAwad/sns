@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %} تعديل معلومات طالب{% endblock %}
+{% block content %}
+  <div class="card">
+    <div class="card-header">Student Register Form</div>
+    <div class="card-body">
+      <form class="" action="{% url 'student-edit' student.emis_id %}" method="post" enctype="multipart/form-data" id="StudentRegistrationForm" load-schools-entry={% url 'load-schools-entry' %}>
+        <div class="card">
+          <div class="card-header">student Information</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ student_form.as_p }}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">address Information</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ address_form.as_p }}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">school Information</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ school_form.as_p }}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">documents Information</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ documents_form.as_p }}
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">parent info</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ parent_form.as_p }}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Student</button>
+      </form>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="{% static 'src/js/registration.js' %}"></script>
+      <script src="{% static 'src/js/address.js' %}"></script>
+    </div>
+  </div>
+{% endblock %}
