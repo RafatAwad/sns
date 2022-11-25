@@ -1,8 +1,8 @@
 db.sqlite3
-env/
 **venv
 *venv
 venv/
+sn-env/
 media
 __pycache_/
 # Created by https://www.gitignore.io/api/git,django,python,pycharm,visualstudiocode
@@ -115,9 +115,9 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.env
+#.env
 .venv
-env/
+#env/
 venv/
 ENV/
 env.bak/
