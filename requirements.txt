@@ -2,13 +2,13 @@ asgiref==3.5.0
 certifi==2019.6.16
 chardet==3.0.4
 Django==3.1.14
-django-jazzmin==2.4.9
+django-jazzmin
 idna==2.8
 Pillow==9.0.1
 pytz==2019.1
 sqlparse==0.3.0
-django-recaptcha ==3.0.0
-gunicorn>=20.0,<21.0
-dj-database-url>=1.0,<2.0
-whitenoise>=6.0,<7.0
-psycopg2>=2.0,<3.0
+django-recaptcha
+gunicorn
+dj-database-url
+whitenoise
+psycopg2
