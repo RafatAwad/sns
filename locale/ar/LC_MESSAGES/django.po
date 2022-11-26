@@ -7,23 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-25 00:16+0300\n"
-"PO-Revision-Date: 2022-11-25 00:18+0300\n"
+"POT-Creation-Date: 2022-11-26 19:02+0300\n"
+"PO-Revision-Date: 2022-11-26 19:07+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: account/forms.py:19
+#: account/forms.py:18
 msgid "username"
 msgstr "اسم المستخدم"
 
-#: account/forms.py:26
+#: account/forms.py:25
 msgid "Password"
 msgstr "كلمة المرور"
 
@@ -35,8 +34,7 @@ msgstr "المستخدمين يتوجب أن يكون لديهم بريد الك
 msgid "Username"
 msgstr "اسم المستخدم"
 
-#: account/models.py:36 student/forms.py:32
-#: templates/parents/parent-profile.html:37
+#: account/models.py:36 templates/parents/parent-profile.html:47
 msgid "Email"
 msgstr "البريد الالكتروني"
 
@@ -53,9 +51,10 @@ msgstr "الاسم الأخير"
 msgid "Profile Photo"
 msgstr "صورة الملف الشخصي"
 
-#: account/models.py:40 student/forms.py:31 student/models.py:36
-#: student/models.py:79 templates/parents/parent-profile.html:36
+#: account/models.py:40 student/forms.py:100 student/models.py:36
+#: student/models.py:81 templates/parents/parent-profile.html:46
 #: templates/parents/parents-list.html:40
+#: templates/student/schools-list.html:47
 msgid "phone number"
 msgstr "رقم المحمول"
 
@@ -73,9 +72,7 @@ msgstr "تم تسجيل الدخول بنجاح"
 
 #: account/views.py:42
 msgid "Invalid credentials, Please check username/email or password. "
-msgstr ""
-"معطيات خاطئة, الرجاء التحقق من اسم المستخدم / البريد الالكتروني أو كلمة "
-"السر. "
+msgstr "معطيات خاطئة, الرجاء التحقق من اسم المستخدم / البريد الالكتروني أو كلمة السر. "
 
 #: address/models.py:6
 msgid "location type"
@@ -85,8 +82,10 @@ msgstr "نوع العنوان"
 msgid "location types "
 msgstr "أنواع العناوين "
 
-#: address/models.py:10 templates/parents/parent-profile.html:49
-#: templates/student/student-list.html:47
+#: address/models.py:10 student/forms.py:18
+#: templates/parents/parent-profile.html:59
+#: templates/student/schools-list.html:44
+#: templates/student/student-list.html:48
 msgid "governorate"
 msgstr "المحافظة"
 
@@ -98,8 +97,10 @@ msgstr "رمز المحافظة"
 msgid "notes"
 msgstr "الملاحظات"
 
-#: address/models.py:18 templates/parents/parent-profile.html:50
-#: templates/student/student-list.html:46
+#: address/models.py:18 student/forms.py:19
+#: templates/parents/parent-profile.html:60
+#: templates/student/schools-list.html:45
+#: templates/student/student-list.html:47
 msgid "district"
 msgstr "المديرية"
 
@@ -115,7 +116,8 @@ msgstr "العزلة"
 msgid "subdistrict code"
 msgstr "رمز العزلة"
 
-#: address/models.py:35 templates/parents/parent-profile.html:52
+#: address/models.py:35 student/forms.py:21
+#: templates/parents/parent-profile.html:62
 msgid "village"
 msgstr "القرية"
 
@@ -136,18 +138,10 @@ msgid "ID"
 msgstr "المعرف"
 
 #: address/models.py:58 templates/parents/parents-list.html:39
+#: templates/student/schools-list.html:42
 #: templates/student/student-list.html:42
 msgid "Name"
 msgstr "الاسم"
-
-# jazzmin translations
-#: myproject/juzmin.py:41 templates/base/sidebar.html:6
-msgid "dashboard"
-msgstr "لوحة التحكم"
-
-#: myproject/juzmin.py:42 templates/base/breadcrumb.html:4
-msgid "Home"
-msgstr "الرئيسية"
 
 #: parent/models.py:8
 msgid "ID Type "
@@ -169,108 +163,135 @@ msgstr "مكان الميلاد"
 msgid "place of live"
 msgstr "محل السكن"
 
-#: parent/utils.py:15 student/forms.py:25 student/utils.py:15
+#: parent/utils.py:15 student/forms.py:96 student/models.py:63
+#: student/utils.py:15
 msgid "name"
 msgstr "الاسم"
 
-#: student/forms.py:24
-msgid "Emis id"
-msgstr "رقم الطالب"
+#: student/forms.py:20 templates/parents/parent-profile.html:61
+msgid "sub district"
+msgstr "العزلة"
 
-#: student/forms.py:26
-msgid "student photo"
-msgstr "صورة الطالب"
+#: student/forms.py:22 templates/parents/parent-profile.html:63
+msgid "sub village"
+msgstr "المحلة"
 
-#: student/forms.py:27 templates/parents/parent-profile.html:23
-#: templates/parents/parents-list.html:41
-msgid "blood group"
-msgstr "فصيلة الدم"
-
-#: student/forms.py:28 templates/parents/parent-profile.html:20
-msgid "date of birth"
-msgstr "تاريخ الميلاد"
-
-#: student/forms.py:29 templates/parents/parent-profile.html:22
+#: student/forms.py:47 templates/parents/parent-profile.html:33
+#: templates/student/schools-list.html:46
 msgid "gender"
 msgstr "الجنس"
 
-#: student/forms.py:30
-msgid "type of Disability"
-msgstr "نوع الإعاقة"
+#: student/forms.py:48 student/forms.py:73 student/forms.py:97
+#: templates/student/schools-list.html:48
+msgid "shift"
+msgstr "الفترة"
 
-#: student/forms.py:33 student/models.py:81
-msgid "father jop"
-msgstr "وظيفة الأب"
-
-#: student/forms.py:34
-msgid "father yearly income"
-msgstr "دخل الأب الشهري"
-
-#: student/models.py:7
-msgid "Gender "
-msgstr "الجنس "
-
-#: student/models.py:7
-msgid "Genders"
-msgstr "الأجناس"
-
-#: student/models.py:10
-msgid "Level "
-msgstr "المستوى "
-
-#: student/models.py:10
-msgid "Levels"
-msgstr "المستويات"
-
-#: student/models.py:13
+#: student/forms.py:49
 msgid "Type of Disability"
 msgstr "نوع الإعاقة"
 
+#: student/forms.py:50 student/models.py:28
+msgid "relation"
+msgstr "قرابة ولي الأمر بالطالب"
+
+#: student/forms.py:51 student/forms.py:53 student/models.py:46
+#: templates/student/student-list.html:45
+msgid "school"
+msgstr "المدرسة"
+
+#: student/forms.py:52
+msgid "grade"
+msgstr "الصف"
+
+#: student/forms.py:54
+msgid "Is father the Gaurd ?"
+msgstr "هل الأب هو ولي الأمر ؟"
+
+#: student/forms.py:71 student/forms.py:102
+msgid "address"
+msgstr "العنوان"
+
+#: student/forms.py:72
+msgid "school gender"
+msgstr "جنس المدرسة"
+
+#: student/forms.py:74 student/models.py:10
+msgid "levels"
+msgstr "المستويات"
+
+#: student/forms.py:95
+msgid "photo"
+msgstr "الصورة الشخصية"
+
+#: student/forms.py:98
+msgid "id type"
+msgstr "نوع الهوية"
+
+#: student/forms.py:99
+msgid "id file"
+msgstr "ملف الهوية الشخصية"
+
+#: student/forms.py:101 student/models.py:82
+msgid "email"
+msgstr "البريد الالكتروني"
+
+#: student/models.py:7
+msgid "gender "
+msgstr "الجنس "
+
+#: student/models.py:7
+msgid "genders"
+msgstr "الأجناس"
+
+#: student/models.py:10
+msgid "level "
+msgstr "المستوى "
+
 #: student/models.py:13
-msgid "Types of Disabilities "
-msgstr "أنواع الإعاقات"
+msgid "type of Disability"
+msgstr "نوع الإعاقة"
+
+#: student/models.py:13
+msgid "types of disabilities "
+msgstr "أنواع الإعاقات "
 
 #: student/models.py:16
-msgid "Grade "
+msgid "grade "
 msgstr "الصف "
 
 #: student/models.py:16
-msgid "Grades"
+msgid "grades"
 msgstr "الصفوف"
 
 #: student/models.py:19
-msgid "Year "
+msgid "year "
 msgstr "السنة "
 
 #: student/models.py:19
-msgid "Years"
+msgid "years"
 msgstr "السنوات"
 
 #: student/models.py:22
-msgid "Shift "
+msgid "shift "
 msgstr "الفترة "
 
 #: student/models.py:22
-msgid "Shifts"
+msgid "shifts"
 msgstr "الفترات"
 
 #: student/models.py:25
-msgid "SchoolGender "
+msgid "school Gender "
 msgstr "جنس المدرسة "
 
 #: student/models.py:25
-msgid "SchoolGenders"
+msgid "School genders"
 msgstr "أجناس المدرسة"
 
 #: student/models.py:28
-msgid "Relation"
-msgstr "القرابة"
+msgid "relations"
+msgstr "قرابة ولي الأمر بالطالب"
 
-#: student/models.py:28
-msgid "Relations"
-msgstr "القرابات"
-
-#: student/models.py:33
+#: student/models.py:33 templates/student/schools-list.html:43
 msgid "school code"
 msgstr "رمز المدرسة"
 
@@ -278,47 +299,61 @@ msgstr "رمز المدرسة"
 msgid "school name"
 msgstr "اسم المدرسة"
 
-#: student/models.py:35
-msgid "address"
-msgstr "العنوان"
-
-#: student/models.py:44 templates/student/student-list.html:44
-msgid "school"
-msgstr "المدرسة"
-
-#: student/models.py:45 templates/base/sidebar.html:21
+#: student/models.py:47 templates/base/sidebar.html:21
 msgid "schools"
 msgstr "المدارس"
 
-#: student/models.py:56
+#: student/models.py:58
 msgid "document"
 msgstr "وثيقة"
 
-#: student/models.py:57
+#: student/models.py:59
 msgid "documents"
 msgstr "الوثائق"
 
-#: student/models.py:82
+#: student/models.py:62
+msgid "Emis id"
+msgstr "رقم الطالب"
+
+#: student/models.py:64
+msgid "student photo"
+msgstr "صورة الطالب"
+
+#: student/models.py:75 templates/parents/parent-profile.html:34
+msgid "blood group"
+msgstr "فصيلة الدم"
+
+#: templates/parents/parents-list.html:41 student/models.py:76
+#: templates/parents/parent-profile.html:14
+#: templates/student/student-list.html:44
+msgid "date of birth"
+msgstr "تاريخ الميلاد"
+
+#: student/models.py:83
+msgid "father jop"
+msgstr "وظيفة الأب"
+
+#: student/models.py:84
 msgid "father monthly income"
 msgstr "دخل الأب الشهري"
 
-#: student/models.py:89
+#: student/models.py:92
 msgid "checking"
 msgstr "تحقق"
 
-#: student/models.py:90
+#: student/models.py:93
 msgid "Add date "
 msgstr "أضف تاريخ "
 
-#: student/models.py:91
+#: student/models.py:94
 msgid "Note"
 msgstr "ملاحظة"
 
-#: student/models.py:97
+#: student/models.py:102
 msgid "Student"
 msgstr "طالب"
 
-#: student/models.py:98
+#: student/models.py:103
 msgid "Students"
 msgstr "الطلاب"
 
@@ -326,7 +361,7 @@ msgstr "الطلاب"
 msgid "login"
 msgstr "تسجيل الدخول"
 
-#: templates/account/login.html:27 templates/account/login.html:53
+#: templates/account/login.html:27 templates/account/login.html:52
 msgid "Login"
 msgstr "تسجيل الدخول"
 
@@ -334,13 +369,17 @@ msgstr "تسجيل الدخول"
 msgid "Sign In to your account"
 msgstr "سجل الدخول لحسابك"
 
-#: templates/account/login.html:56
+#: templates/account/login.html:55
 msgid "Forgot password?"
 msgstr "نسيت كلمة المرور؟"
 
 #: templates/base/base.html:5
 msgid "spacial needs students management system"
 msgstr "نظام إدارة طلاب ذوي الاحتياجات الخاصة"
+
+#: templates/base/base.html:21
+msgid "Home"
+msgstr "الرئيسية"
 
 #: templates/base/footer.html:3
 msgid "PSN data entry system"
@@ -350,7 +389,7 @@ msgstr "نظام ملعومات الطلاب ذوي الاحتياجات الخ�
 msgid "Powered by"
 msgstr "تطوير"
 
-#: templates/base/navbar.html:13 templates/base/navbar.html:49
+#: templates/base/navbar.html:13 templates/base/navbar.html:51
 msgid "Settings"
 msgstr "الإعدادات"
 
@@ -359,17 +398,22 @@ msgid "Account"
 msgstr "الحساب"
 
 # navbar
-#: templates/base/navbar.html:48
+#: templates/base/navbar.html:50
 msgid "Profile"
 msgstr "الملف الشخصي"
 
-#: templates/base/navbar.html:50
+#: templates/base/navbar.html:52
 msgid "entrys"
 msgstr "المدخلين"
 
-#: templates/base/navbar.html:51
+#: templates/base/navbar.html:53
 msgid "Logout"
 msgstr "تسجيل الخروج"
+
+# jazzmin translations
+#: templates/base/sidebar.html:6
+msgid "dashboard"
+msgstr "لوحة التحكم"
 
 #: templates/base/sidebar.html:12
 msgid "administrator"
@@ -475,44 +519,53 @@ msgstr "إجمالي أولياء الأمور"
 msgid "parent profile"
 msgstr "ملف ولي الأمر الشخصي"
 
-#: templates/parents/parent-profile.html:14
+#: templates/parents/parent-profile.html:4
+msgid "Paernt Profile"
+msgstr "ملف ولي الأمر"
+
+#: templates/parents/parent-profile.html:10
 msgid "parent Information"
 msgstr "معلومات ولي الأمر"
 
-#: templates/parents/parent-profile.html:19
+#: templates/parents/parent-profile.html:13
 msgid "Parent Name "
-msgstr "اسم ولي الأمر"
+msgstr "اسم ولي الأمر "
 
-#: templates/parents/parent-profile.html:21
+#: templates/parents/parent-profile.html:15
 msgid "place of birth"
 msgstr "مكان الميلاد"
 
-#: templates/parents/parent-profile.html:24
-#: templates/parents/parents-list.html:16
+#: templates/parents/parent-profile.html:31
+msgid "More Information"
+msgstr "المزيد من المعلومات"
+
+#: templates/parents/parent-profile.html:35
+#: templates/parents/parents-list.html:17
 msgid "show"
 msgstr "استعراض"
 
-#: templates/parents/parent-profile.html:24
+#: templates/parents/parent-profile.html:35
+#: templates/student/student-profile.html:67
 msgid "download"
 msgstr "تنزيل"
 
-#: templates/parents/parent-profile.html:31
+#: templates/parents/parent-profile.html:41
 msgid "contact info"
 msgstr "معلومات الإتصال"
 
-#: templates/parents/parent-profile.html:44
-msgid "address info "
+#: templates/parents/parent-profile.html:54
+msgid "address info"
 msgstr "معلومات السكن"
 
-#: templates/parents/parent-profile.html:51
-msgid "sub district"
-msgstr "العزلة"
+#: templates/parents/parents-list.html:3
+msgid "Paernt Lis"
+msgstr "قائمة أولياء الأمور"
 
-#: templates/parents/parent-profile.html:53
-msgid "sub village"
-msgstr "المحلة"
+#: templates/parents/parents-list.html:4
+msgid "Parent Lis"
+msgstr "قائمة أولياء الأمور"
 
-#: templates/parents/parents-list.html:8
+#: templates/parents/parents-list.html:9
 msgid "parents list"
 msgstr "قائمة أولياء الأمور"
 
@@ -520,84 +573,123 @@ msgstr "قائمة أولياء الأمور"
 msgid "from results"
 msgstr "من النتائج"
 
-#: templates/student/student-list.html:3
-msgid "students lis"
-msgstr "قائمة الطلاب"
+#: templates/parents/parents-list.html:42
+#: templates/student/schools-list.html:49
+#: templates/student/student-list.html:50
+msgid "Actions"
+msgstr "الإجراءات"
 
-#: templates/student/student-list.html:8
-msgid "Student Tables"
-msgstr "جداول الطلاب"
+#: templates/student/school-profile.html:3
+#: templates/student/school-profile.html:4
+msgid "school Profile"
+msgstr "ملف المدرسة"
 
-#: templates/student/student-list.html:16
+#: templates/student/schools-list.html:3 templates/student/schools-list.html:4
+msgid "schools list"
+msgstr "قائمة المدارس"
+
+#: templates/student/schools-list.html:9
+msgid "schools Tables"
+msgstr "جداول  المدارس"
+
+#: templates/student/schools-list.html:17
+#: templates/student/student-list.html:17
 msgid "Show"
 msgstr "استعراض"
 
+#: templates/student/schools-list.html:22
 #: templates/student/student-list.html:22
 msgid "entries"
 msgstr "المدخلات"
 
+#: templates/student/schools-list.html:29
 #: templates/student/student-list.html:29
 msgid "Search:"
 msgstr "البحث:"
+
+#: templates/student/student-edit.html:3 templates/student/student-edit.html:4
+msgid "Edit Student Info"
+msgstr "تعديل بيانات الطالب"
+
+#: templates/student/student-list.html:3 templates/student/student-list.html:4
+msgid "students lis"
+msgstr "قائمة الطلاب"
+
+#: templates/student/student-list.html:9
+msgid "Student Tables"
+msgstr "جداول الطلاب"
 
 #: templates/student/student-list.html:43
 msgid "Reg No"
 msgstr "رقم الطالب"
 
-#: templates/student/student-list.html:45
+#: templates/student/student-list.html:46
 msgid "Class"
 msgstr "الصف"
 
-#: templates/student/student-list.html:48
+#: templates/student/student-list.html:49
 msgid "spnType"
 msgstr "نوع الإعاقة"
 
-#: templates/student/student-list.html:49
-msgid "Actions"
-msgstr "الإجراءات"
+#: templates/student/student-profile.html:4
+msgid "students Profile"
+msgstr "الملف الشخصي للطالب"
 
 #: templates/student/student-registration.html:3
-#: templates/student/student-registration.html:6
+#: templates/student/student-registration.html:4
+#: templates/student/student-registration.html:7
 msgid "Student Register Form"
 msgstr "استمارة تسجيل طالب"
 
-#: templates/student/student-registration.html:11
-msgid "Personal Information"
-msgstr "المعلومات الشخصية"
-
-#: templates/student/student-registration.html:17
-#: templates/student/student-registration.html:29
-#: templates/student/student-registration.html:41
-#: templates/student/student-registration.html:54
-#: templates/student/student-registration.html:67
-msgid "Next"
-msgstr "التالي"
-
-#: templates/student/student-registration.html:22
-msgid "School Information"
-msgstr "معلومات المدرسة"
-
-#: templates/student/student-registration.html:28
-#: templates/student/student-registration.html:40
-#: templates/student/student-registration.html:52
-#: templates/student/student-registration.html:65
-msgid "Previous"
-msgstr "السابق"
-
-#: templates/student/student-registration.html:34
+#: templates/student/student-registration.html:13
 msgid "Address Information"
 msgstr "معلومات السكن"
 
-#: templates/student/student-registration.html:46
+#: templates/student/student-registration.html:19
+#: templates/student/student-registration.html:31
+#: templates/student/student-registration.html:43
+#: templates/student/student-registration.html:55
+msgid "Next"
+msgstr "التالي"
+
+#: templates/student/student-registration.html:24
+msgid "Personal Information"
+msgstr "المعلومات الشخصية"
+
+#: templates/student/student-registration.html:30
+#: templates/student/student-registration.html:42
+#: templates/student/student-registration.html:54
+#: templates/student/student-registration.html:66
+msgid "Previous"
+msgstr "السابق"
+
+#: templates/student/student-registration.html:36
+msgid "School Information"
+msgstr "معلومات المدرسة"
+
+#: templates/student/student-registration.html:48
 msgid "Students Documents"
 msgstr "وثائق الطالب"
 
-#: templates/student/student-registration.html:59
+#: templates/student/student-registration.html:60
 msgid "Parent Information"
 msgstr "معلومات ولي الأمر"
 
-#~ msgid "Teacher"
-#~ msgstr "معلم"
+#: templates/student/student-registration.html:67
+msgid "submit"
+msgstr "إرسال"
 
-#~ msgid "Dashboard"
-#~ msgstr "لوحة التحكم"
+#~ msgid "father yearly income"
+#~ msgstr "دخل الأب الشهري"
+
+#~ msgid "Gender "
+#~ msgstr "الجنس "
+
+#~ msgid "Genders"
+#~ msgstr "الأجناس"
+
+#~ msgid "Relation"
+#~ msgstr "القرابة"
+
+#~ msgid "Relations"
+#~ msgstr "القرابات"

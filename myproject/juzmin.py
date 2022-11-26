@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext as _
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title": "PSN data entry system",
@@ -38,8 +38,8 @@ JAZZMIN_SETTINGS = {
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": _("dashboard"),  "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": _("Home"),  "url": "home", "permissions": ["auth.view_user"]},
+        {"name": "dashboard",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Home",  "url": "home", "permissions": ["auth.view_user"]},
         # external url that opens in a new window (Permissions can be added)
         {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
 
@@ -108,7 +108,7 @@ JAZZMIN_SETTINGS = {
     # Related Modal #
     #################
     # Use modals instead of popups
-    "related_modal_active": True,
+    "related_modal_active": False,
 
     #############
     # UI Tweaks #

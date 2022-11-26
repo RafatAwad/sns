@@ -30,18 +30,20 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                aria-haspopup="true" aria-expanded="false">
-                {% if request.user %}
-                <img src="{{ request.user.photo.url }}" class="img-avatar" alt="admin">
+                {% if request.user.photo %}
+                    <img src="{{  request.user.photo.url}}" class="img-avatar" alt="admin">
                 {% else %}
-                <img src="{% static 'src/img/man.png' %}" class="img-avatar" alt="Anynumos">
+                    <img src="{% static 'src/img/man.png' %}" class="img-avatar" alt="Anynumos">
                 {% endif %}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
                     <strong>{% translate "Account" %}</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> {{ request.user.id}}<span
-                        class="badge badge-info">42</span></a>
+                <a class="dropdown-item" href="#">
+                     {{ request.user.username }}
+                    <span
+                        class="badge badge-info"></span></a>
                 <div class="dropdown-header text-center">
                     <strong>{% translate "" %}</strong>
                 </div>

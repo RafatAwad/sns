@@ -5,11 +5,8 @@ from django.contrib.messages import constants as messages
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-import dj_database_url
+
 import os
-from django.test.runner import DiscoverRunner
-from pathlib import Path
-IS_HEROKU = "DYNO" in os.environ
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
@@ -40,13 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     #'rest_framework',
     'account',
     'student',
     'parent',
     'address',
-    'captcha',
 ]
 
 
@@ -86,6 +82,17 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 MAX_CONN_AGE = 600
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'snp',
+#         'USER': 'postgres',
+#         'PASSWORD': '12345',
+#         'PORT': 7777,
+#         'HOST': '127.0.0.1'
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -149,25 +156,10 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATICFILES_DIRS = [
- #   os.path.join(BASE_DIR, 'static')
-#]
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'static')
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
-
-# Test Runner Config
-class HerokuDiscoverRunner(DiscoverRunner):
-    """Test Runner for Heroku CI, which provides a database for you.
-    This requires you to set the TEST database (done for you by settings().)"""
-
-    def setup_databases(self, **kwargs):
-        self.keepdb = True
-        return super(HerokuDiscoverRunner, self).setup_databases(**kwargs)
-
-
-# Use HerokuDiscoverRunner on Heroku CI
-if "CI" in os.environ:
-    TEST_RUNNER = "myproject.settings.HerokuDiscoverRunner"
-

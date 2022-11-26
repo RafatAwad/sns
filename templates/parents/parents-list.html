@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
-
+{% block title %}{% translate "Paernt Lis" %}{% endblock %}
+{% block cr %}{% translate "Parent Lis" %}{% endblock %}
 {% block content %}
   <div class="animated fadeIn">
       <div class="card">
@@ -15,10 +16,9 @@
                           <div class="dataTables_length" id="DataTables_Table_0_length">
                               <label>{% translate "show" %}
                                   <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
-                                      <option value="10">10</option>
-                                      <option value="25">25</option>
-                                      <option value="50">50</option>
-                                      <option value="100">100</option>
+                                     {% for num in nums %}
+                                    <option value="10">{{num}}</option>
+                                      {% endfor%}
                                   </select>{% translate "from results" %}</label>
                           </div>
                       </div>
@@ -39,7 +39,7 @@
                                       <th>{% translate "Name" %}</th>
                                       <th>{% translate "phone number" %}</th>
                                       <th>{% translate "blood group" %}</th>
-                                      <th>Actions</th>
+                                      <th>{% translate "Actions" %}</th>
                                   </tr>
                               </thead>
                               <tbody>

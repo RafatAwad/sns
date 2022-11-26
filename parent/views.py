@@ -6,7 +6,10 @@ from .models import Parent, Location
 
 def parents_list(request):
     parents = Parent.objects.all()
-    context = {'parents': parents}
+    nums = (10,20,30)
+    context = {'parents': parents,
+               'nums' : nums
+               }
     return render(request, 'parents/parents-list.html', context)
 
 

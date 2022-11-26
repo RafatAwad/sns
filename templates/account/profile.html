@@ -5,23 +5,23 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <img style="height:200px; width:200px; border-radius:50%; margin:auto" src="{{ profile.user.photo.url }}" alt="Photo">
+                <img style="height:200px; " src="{{ profile.user.photo.url }}" alt="Photo">
             </div>
         </div>
         <div class="card-body">
             <div class="row">
-                <h2 class="mx-auto">Wellcome {{ request.user.username }}</h2>
+                <h2 class="tit-3">مرحبــاً  {{ request.user.username }}</h2>
             </div>
             <hr>
             <div class="row">
                 <div style="font-size:24px; margin-left: 30px">
-                    <pre>Name: {{ profile.user.username }}</pre>
-                    <pre>Name: {{ profile.user.first_name }}</pre>
-                    <pre>Name: {{ profile.user.last_name }}</pre>
-                    <pre>Email: {{ profile.user.emial }}</pre>
-                    <pre> Role: {{ profile.role.name }}</pre>
-                    <pre>phone number: {{ profile.user.phone_number }}</pre>
-                    <pre>work feild: {{ profile.user.location }}</pre>
+                    <pre>اسم المستخدم: {{ profile.user.username }}</pre>
+                    <pre>الاسم الأول: {{ profile.user.first_name }}</pre>
+                    <pre>الاسم الثاني: {{ profile.user.last_name }}</pre>
+                    <pre>البريد الالكتروني: {{ profile.user.emial }}</pre>
+                    <pre> المسؤولية: {{ profile.role.name }}</pre>
+                    <pre> رقم الهاتف: {{ profile.user.phone_number }}</pre>
+                    <pre>موقع العمل : {{ profile.user.location }}</pre>
                 </div>
             </div>
         </div>

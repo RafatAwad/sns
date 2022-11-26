@@ -4,7 +4,6 @@
 <html lang="{{ LANGUAGE_CODE }}" dir={% if 'ar' in LANGUAGE_CODE %}  "rtl" {% else %} "ltr" {% endif %}>
     <title> {% translate "spacial needs students management system" %} | {% block title %}{% endblock %}</title>
 
-<!--Headers-->
 {% include 'base/header.html' %}
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
@@ -18,7 +17,22 @@
     <!-- Main content -->
     <main class="main">
         <!-- Breadcrumb -->
-        {% include 'base/breadcrumb.html' %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %} ">{% trans 'Home' %}</a></li>
+            <li class="breadcrumb-item active">{% block cr %}{% endblock %}</li>
+        
+            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-menu d-md-down-none">
+                <div class="btn-group" role="group" aria-label="Button group">
+                    <a class="btn" href="#"><i class="icon-speech"></i></a>
+                    <a class="btn" href="{% url 'home' %}"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+                    <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a>
+                </div>
+            </li>
+        
+        
+            
+        </ol>
 
         <!-- Page contents -->
         <div class="container-fluid">

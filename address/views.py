@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import District, Village,SubDistrict,SubVillage
+from .models import Location, Governorate,District,Village,SubDistrict,SubVillage
 from .forms import *
 
 def load_school_entry(request): 

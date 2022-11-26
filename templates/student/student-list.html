@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
 {% block title %}{% translate "students lis" %}{% endblock %}
+{% block cr %}{% translate "students lis" %}{% endblock %}
 {% block content %}
   <div class="animated fadeIn">
       <div class="card">
@@ -15,12 +16,12 @@
                           <div class="dataTables_length" id="DataTables_Table_0_length">
                               <label>{% translate "Show" %}
                                   <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm">
-                                      <option value="10">10</option>
-                                      <option value="25">25</option>
-                                      <option value="50">50</option>
-                                      <option value="100">100</option>
+                                    {% for num in nums%}  
+                                    <option value="10">{{ num }}</option>
+                                    {% endfor%}
                                   </select> {% translate "entries" %}</label>
                           </div>
+                            <span class="btn btn-primary"><a href="{% url 'printf' %}" style="color:white" >توليد استمارة طالب</a> </span>
                       </div>
                       <div class="col-sm-12 col-md-6">
                           <div id="DataTables_Table_0_filter" class="dataTables_filter">
@@ -41,6 +42,7 @@
                                       <th>Id</th>
                                       <th>{% translate "Name" %}</th>
                                       <th>{% translate "Reg No" %}</th>
+                                      <th>{% translate "date of birth" %}</th>
                                       <th>{% translate "school" %}</th>
                                       <th>{% translate "Class" %}</th>
                                       <th>{% translate "district" %}</th>
@@ -53,18 +55,19 @@
                                   {% for student in student %}
                                     <tr role="row" class="odd">
                                         <td>{{ forloop.counter }}</td>
-                                        <td>{{ student.name }}</td>
+                                        <td>{{ student.name|default:"غير موجود" }}</td>
                                         <td>{{ student.emis_id }}</td>
-                                        <td>{{ student.school.name }}</td>
-                                        <td>{{ student.grade }}</td>
-                                        <td>{{ student.address.district.name}}</td>
-                                        <td>{{ student.address.governorate.name }}</td>
-                                        <td>{{ student.spn_type }}</td>
+                                        <td>{{ student.date_of_birth|date:'d-m-Y' }}</td>
+                                        <td>{{ student.school.name|default:"غير محدد" }}</td>
+                                        <td>{{ student.grade|default:"غير محدد" }}</td>
+                                        <td>{{ student.address.district.name|default:"غير محدد"}}</td>
+                                        <td>{{ student.address.governorate.name|default:"غير محدد" }}</td>
+                                        <td>{{ student.spn_type|default:"غير محدد" }}</td>
                                         <td>
                                             <a class="btn btn-success" href="{% url 'student-profile' student.emis_id %}">
                                                 <i class="fa fa-search-plus"></i>
                                             </a>
-                                            <a class="btn btn-info" href="{% url 'student-edit' student.emis_id%}">
+                                            <a class="btn btn-info" href="{% url 'student-edit' student.emis_id %}">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a class="btn btn-danger" href="{% url 'student-delete' student.emis_id %}">

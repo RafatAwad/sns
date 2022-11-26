@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
 {% block title %}{% translate "Student Register Form" %}{% endblock %}
+{% block cr %}{% translate "Student Register Form" %}{% endblock %}
 {% block content %}
   <div class="card">
     <div class="card-header">{% translate "Student Register Form" %}</div>
@@ -26,7 +27,7 @@
               {{ student_form.as_p }}
             </div>
           </div>
-          <button id="personal_info_prev_btn" type="button" class="btn btn-primary pull-right">{% translate "previous" %}</button>
+          <button id="personal_info_prev_btn" type="button" class="btn btn-primary pull-right">{% translate "Previous" %}</button>
           <button id="personal_info_btn" type="button" class="btn btn-primary pull-left">{% translate "Next" %}</button>
         </div>
 

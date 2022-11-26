@@ -4,43 +4,44 @@ from address.models import Location
 from student.utils import RefTable, ref_table_verbose
 from django.utils.translation import gettext as _
 
-@ref_table_verbose(_('Gender '), _('Genders'))
+@ref_table_verbose(_('gender '), _('genders'))
 class Gender(RefTable): pass
 
-@ref_table_verbose(_('Level '), _('Levels'))
+@ref_table_verbose(_('level '), _('levels'))
 class SchoolLevel(RefTable): pass
 
-@ref_table_verbose(_('Type of Disability'), _('Types of Disabilities '))
+@ref_table_verbose(_('type of Disability'), _('types of disabilities '))
 class SPNType(RefTable): pass
 
-@ref_table_verbose(_('Grade '), _('Grades') )
+@ref_table_verbose(_('grade '), _('grades') )
 class Grade(RefTable): pass
 
-@ref_table_verbose(_('Year '), _('Years'))
+@ref_table_verbose(_('year '), _('years'))
 class Year(RefTable): pass
 
-@ref_table_verbose(_('Shift '), _('Shifts'))
+@ref_table_verbose(_('shift '), _('shifts'))
 class Shift(RefTable): pass
 
-@ref_table_verbose(_('SchoolGender '), _('SchoolGenders'))
+@ref_table_verbose(_('school Gender '), _('School genders'))
 class SchoolGender(RefTable): pass
 
-@ref_table_verbose(_('Relation'), _('Relations'))
+@ref_table_verbose(_('relation'), _('relations'))
 class Relation(RefTable): pass
 
 
 class School(Model):
-    school_code = IntegerField(verbose_name= _('school code'), primary_key=True, null=False, blank=True)
-    name = CharField(verbose_name= _('school name'),max_length=45, unique=True, null=True, blank=True)
-    address = ForeignKey(Location, verbose_name=_('address'), on_delete=CASCADE, null=True, blank=True)
-    phone_no = CharField(verbose_name=_('phone number'), max_length=50, null=True, blank=True)
-    school_gender = ForeignKey(SchoolGender, max_length=50, blank=True, null=True, on_delete=SET_NULL)
-    shift = ForeignKey(Shift, max_length=50, blank=True, null=True, on_delete=SET_NULL)
-    levels = ManyToManyField(SchoolLevel, related_name='school')
+    school_code = CharField(verbose_name= _('school code'), max_length=50)
+    name = CharField(verbose_name= _('school name'),max_length=100, null=True, blank=True)
+    address = ForeignKey(Location, max_length=50, null=True, blank=True,on_delete=SET_NULL)
+    phone_no = CharField(verbose_name=_('phone number'), max_length=100, null=True, blank=True)
+    school_gender = ForeignKey(SchoolGender, on_delete=SET_NULL, blank=True, null=True)
+    shift = ForeignKey(Shift, on_delete=SET_NULL, blank=True, null=True)
+    levels = ManyToManyField(SchoolLevel, null=True, blank=True, related_name='school')
     
     def __str__(self):
-        return self.name
-
+        if not self.name:
+            return ""
+        return str(self.name)
     class Meta:
         verbose_name        = _('school')
         verbose_name_plural = _('schools')
@@ -65,7 +66,7 @@ class StudentInfo(Model):
         ('a+', 'A+'),
         ('o+', 'O+'),
         ('b+', 'B+'),
-        ('ab+', 'AB+'),
+        ('ab+','AB+'),
         ('a-', 'A-'),
         ('o-', 'O-'),
         ('b-', 'B-'),
@@ -81,7 +82,8 @@ class StudentInfo(Model):
     email = EmailField(_('email'), null=True,  blank=True)
     father_job = CharField(verbose_name=_('father jop'), max_length=50, null=True, blank=True)
     father_monthly_income = IntegerField(verbose_name=_('father monthly income'), null=True, blank=True)
-    parent = ForeignKey(P_p,  null=True, blank=True, on_delete=SET_NULL)
+    father_is_guard=BooleanField(null=True, blank=True)
+    parent = ForeignKey(P_p, null=True, blank=True, on_delete=SET_NULL)
     relation = ForeignKey(Relation, max_length=50, null=True, blank=True, on_delete=SET_NULL)
     address = ForeignKey(Location, null=True, blank=True, on_delete=SET_NULL)
     documents = ForeignKey( Document,  null=True, blank=True, on_delete=SET_NULL)
@@ -92,7 +94,9 @@ class StudentInfo(Model):
     note = CharField(verbose_name=_('Note'), max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        if not self.name:
+            return ""
+        return str(self.name)
  
     class Meta:
         verbose_name        = _('Student')

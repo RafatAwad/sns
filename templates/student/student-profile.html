@@ -1,97 +1,63 @@
 {% extends 'base/base.html' %}
-{% load static %}
-{% block title %} الملف الشخصي{% endblock %}
+{% load static i18n %}
+{% block title %}الملف الشخصي{% endblock %}
+{% block cr %}{% translate "students Profile" %}{% endblock %}
 {% block content %}
   <div class="card">
     <div class="card-header">
       <div class="row">
-        <img style="height:200px; width:200px; border-radius:50%; margin:auto" src="{{ student.photo.url }}" alt="Photo">
+        <div class="col-9">
+          <h2 class="tit-3">معلومات الطالب</h2>
+          <hr>
+          <div style="font-size:24px; margin-left: 30px">
+            <pre>الطالب : {{ student.name }}</pre>
+            <pre>رقم الطالب : {{ student.emis_id }}</pre>
+            <pre>الصف : {{ student.grade.name }}</pre>
+          </div>
+        </div>
+        <div class="col-3">
+          <img style="max-height:100%; max-width:100%" src="{{ student.photo.url }}" alt="Photo">
+        </div>
       </div>
     </div>
     <div class="card-body">
-      <div class="address_information">
-        <div class="row">
-          <h2 class="mx-auto">Academic Information</h2>
-        </div>
-        <hr>
-        <div class="row">
-          <div style="font-size:24px; margin-left: 30px">
-            <pre>Class  : {{ student.class_info }}</pre>
-            <pre>Registration No: {{ student.registration_no }}</pre>
-          </div>
-        </div>
-      </div>
-
       <div class="personal_information">
         <div class="row">
-          <h2 class="mx-auto">Personal Information</h2>
+          <h2 class="tit-3">المعلومات الشخصية </h2>
         </div>
         <hr>
         <div class="row">
           <div style="font-size:24px; margin-left: 30px">
-            <pre>Name                : {{ student.name }}</pre>
-            <pre>Blood Group         : {{ student.blood_group }}</pre>
-            <pre>Date of Birth       : {{ student.date_of_birth }}</pre>
-            <pre>Gender              : {{ student.gender }}</pre>
-            <pre>Phone No            : {{ student.phone_no }}</pre>
-            <pre>Email               : {{ student.email }}</pre>
-            <pre>Birth Certificate No: {{ student.personal_info.birth_certificate_no }}</pre>
-            <pre>Religion            : {{ student.personal_info.religion }}</pre>
-            <pre>Nationality         : {{ student.personal_info.nationality }}</pre>
+            <pre>فصيلة الدم : {{ student.blood_group }}</pre>
+            <pre>تاريخ الميلاد : {{ student.date_of_birth }}</pre>
+            <pre>الجنس : {{ student.gender }}</pre>
+            <pre>الجمسية : </pre>
           </div>
         </div>
       </div>
 
       <div class="address_information">
         <div class="row">
-          <h2 class="mx-auto">Address Information</h2>
+          <h2 class="tit-3">ملعومات العنوان </h2>
         </div>
         <hr>
         <div class="row">
           <div style="font-size:24px; margin-left: 30px">
-            <pre>governorate: {{ student.address.governorate.name }}</pre>
-            <pre>district: {{ student.address.district.name }}</pre>
-            <pre>school name   : {{ student.school.name }}</pre>
+            <pre>المحافظة:{{ student.address.governorate.name }}</pre>
+            <pre>المديرية: {{ student.address.district.name }}</pre>
+            <pre>اسم المدرسة: {{ student.school.name }}</pre>
           </div>
         </div>
       </div>
 
       <div class="address_information">
         <div class="row">
-          <h2 class="mx-auto">parent Information</h2>
+          <h2 class="tit-3">المستندات والوثائق </h2>
         </div>
         <hr>
         <div class="row">
           <div style="font-size:24px; margin-left: 30px">
-            <pre>Father`s Name            : {{ student.parent.name }}</pre>
-            <pre>Father`s Phone No        : {{ student.parent.father_phone_no }}</pre>
-            <pre>Father`s Occupation      : {{ student.guardian_info.father_occupation }}</pre>
-            <pre>Father`s Yearly Income   : {{ student.guardian_info.father_yearly_income }}</pre>
-            <pre>Mother`s Name            : {{ student.guardian_info.mother_name }}</pre>
-            <pre>Mother`s Phone No        : {{ student.guardian_info.mother_phone_no }}</pre>
-            <pre>Mother`s Occupation      : {{ student.guardian_info.mother_occupation }}</pre>
-            <pre>Guardian Name            : {{ student.guardian_info.guardian_name }}</pre>
-            <pre>Guardian Phone No        : {{ student.guardian_info.guardian_phone_no }}</pre>
-            <pre>Guardian Email           : {{ student.guardian_info.guardian_email }}</pre>
-            <pre>Relationship with Student: {{ student.guardian_info.relationship_with_student }}</pre>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="previous_academic_information">
-        <div class="row">
-          <h2 class="mx-auto">Necessary Documents</h2>
-        </div>
-        <hr>
-        <div class="row">
-          <div style="font-size:24px; margin-left: 30px">
-            <pre>Birth Certificate : {{ student.previous_academic_certificate.birth_certificate }}</pre>
-            <pre>Release Letter    : {{ student.previous_academic_certificate.release_letter }}</pre>
-            <pre>Testimonial       : {{ student.previous_academic_certificate.testimonial }}</pre>
-            <pre>Marksheet         : {{ student.previous_academic_certificate.marksheet }}</pre>
-            <pre>Stipen Certificate: {{ student.previous_academic_certificate.stipen_certificate }}</pre>
-            <pre>Other Certificate : {{ student.previous_academic_certificate.other_certificate }}</pre>
+            <pre>شهادة الميلاد :  <a class="btn btn-primary" href="{{ student.documents.birth_certificate }}" target="new-window">{% translate "download" %}</a></pre>
           </div>
         </div>
       </div>
